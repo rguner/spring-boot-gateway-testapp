@@ -1,11 +1,14 @@
 package com.example.springbootgatewaytestapp.controller;
 
 
+import com.example.springbootgatewaytestapp.model.Hello;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Enumeration;
@@ -39,14 +42,10 @@ public class TestControlller {
                 + "\n Http Parameters: " + parameters;
     }
 
+    @GetMapping("/response-header")
+    public String testResponseHeader() {
 
-    @GetMapping("/")
-    public String testRoot() {
-        return "Gateway is working,  path /";
+        return "App is working, path /local-test-response-header";
     }
 
-    @GetMapping("/local-test/gw-test")
-    public String testGateway2() {
-        return "Gateway2 is working, path /local-test/gw-test";
-    }
 }
