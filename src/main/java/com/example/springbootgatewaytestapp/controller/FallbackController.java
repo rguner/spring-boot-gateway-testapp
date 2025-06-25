@@ -19,8 +19,19 @@ public class FallbackController {
 
     @GetMapping("/status/502")
     public String status502() {
-        log.info("Status 502");
         throw new ResponseStatusException(HttpStatus.BAD_GATEWAY, "Bad Gateway");
+    }
+
+    @GetMapping("/status/504")
+    public String status504() {
+        log.info("Status 504");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            log.error("Thread interrupted", e);
+        }
+        throw new ResponseStatusException(HttpStatus.GATEWAY_TIMEOUT, "Gateway Timeout");
     }
 
 }
