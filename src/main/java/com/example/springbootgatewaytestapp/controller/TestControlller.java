@@ -48,4 +48,10 @@ public class TestControlller {
         return "App is working, path /local-test-response-header";
     }
 
+    @GetMapping("/rate-limit/get/test")
+    public String testRateLimit() {
+
+        return "App is working, path /rate-limit/get/test";
+    }
+
 }
