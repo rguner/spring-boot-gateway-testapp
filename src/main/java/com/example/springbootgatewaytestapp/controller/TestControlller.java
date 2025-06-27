@@ -4,6 +4,7 @@ package com.example.springbootgatewaytestapp.controller;
 import com.example.springbootgatewaytestapp.model.Hello;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import java.util.Enumeration;
 
 @RestController
 @RequiredArgsConstructor
+@Slf4j
 public class TestControlller {
 
 
@@ -51,7 +53,15 @@ public class TestControlller {
     @GetMapping("/rate-limit/get/test")
     public String testRateLimit() {
 
+        log.info("Rate-Limit is working, path /rate-limit/get/test");
         return "App is working, path /rate-limit/get/test";
+    }
+
+    @GetMapping("/cache-test/test")
+    public String testCache() {
+
+        log.info("Cache is working, path /cache-test/test");
+        return "App is working, path /cache/test";
     }
 
 }
